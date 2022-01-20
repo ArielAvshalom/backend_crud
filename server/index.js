@@ -1,7 +1,7 @@
 //first commit added index.js
 const express = require('express')
 const morgan = require('morgan')
-//const { db } = require
+const { db } = require('./db')
 const cors = require('cors')
 
 const app = express()
@@ -12,8 +12,12 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
-//app.use('/api', require('./api'))
+app.use('/api', require('./api/index'))
 
-app.listen(PORT, () =>
-    console.log(`Serving portmanteau since there were ports ${PORT}`)
-)
+db.sync().then(() =>{
+    console.log('db synced')
+    app.listen(PORT, () =>
+        console.log(`Serving portmanteau since there were ports ${PORT}`)
+    )
+})
+
