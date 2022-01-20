@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const database = require('./database')
+const db = require('./database')
 
 const Student = db.define('student', {
     //name, gender, dob, image
