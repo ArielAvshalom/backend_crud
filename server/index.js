@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
-app.use('/api', require('./api'))
+//app.use('/api', require('./api'))
 
 app.listen(PORT, () =>
     console.log(`Serving portmanteau since there were ports ${PORT}`)
