@@ -23,3 +23,5 @@ const Student = db.define('student', {
         type: Sequelize.TEXT
     }
 })
+
+module.exports = Student
